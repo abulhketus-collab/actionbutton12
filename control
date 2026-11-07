@@ -1,0 +1,9 @@
+Package: com.cocxace.actionbutton12
+Name: ActionButton12
+Depends: mobilesubstrate, firmware (>= 12.0)
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Action Button HUD for iOS 12 by @cocxace
+Maintainer: cocxace <@cocxace>
+Author: cocxace <@cocxace>
+Section: Tweaks

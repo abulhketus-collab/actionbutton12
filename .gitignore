@@ -1,0 +1,11 @@
+# Build artifacts
+.theos/
+*.o
+*.dylib
+*.log
+*.zip
+*.txt
+
+# IDE & OS
+.DS_Store
+Thumbs.db
