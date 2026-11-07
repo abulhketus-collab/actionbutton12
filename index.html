@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ActionButton12 Repo</title>
+    <link rel="icon" type="image/png" href="CydiaIcon.png">
+    <style>
+        :root {
+            --accent: #FF9500;
+            --bg: #121214;
+            --card-bg: rgba(28, 28, 32, 0.85);
+            --border: rgba(255, 255, 255, 0.12);
+            --text: #F5F5F7;
+            --text-sub: #A1A1A6;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 24px;
+        }
+        .container {
+            max-width: 460px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 24px rgba(255, 149, 0, 0.3);
+            border: 1px solid var(--border);
+        }
+        h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+        .author { font-size: 14px; color: var(--accent); font-weight: 600; margin-bottom: 16px; }
+        p.desc { font-size: 15px; color: var(--text-sub); line-height: 1.5; margin-bottom: 28px; }
+        .btn-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 20px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-sileo {
+            background: linear-gradient(135deg, #FF9500 0%, #FF5E00 100%);
+            color: #FFFFFF;
+            box-shadow: 0 6px 18px rgba(255, 149, 0, 0.35);
+        }
+        .btn-sileo:hover { transform: translateY(-2px); opacity: 0.95; }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.14); }
+        .features {
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 18px;
+            padding: 18px;
+            text-align: left;
+            margin-top: 20px;
+            border: 1px solid var(--border);
+        }
+        .features h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-sub); margin-bottom: 12px; }
+        .features ul { list-style: none; font-size: 14px; color: var(--text); line-height: 1.8; }
+        .features li::before { content: "✓"; color: var(--accent); font-weight: bold; margin-right: 8px; }
+        .footer { font-size: 12px; color: var(--text-sub); margin-top: 24px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="CydiaIcon.png" alt="ActionButton12" class="icon">
+        <h1>ActionButton12</h1>
+        <div class="author">by @cocxace</div>
+        <p class="desc">Официальный репозиторий твика ActionButton12 для iOS 12.0 – 12.5.8 (iPhone 5s / A7). Имитация кнопки Действия с iPhone 15 Pro.</p>
+
+        <div class="btn-group">
+            <a id="sileoBtn" href="#" class="btn btn-sileo">⚡ Добавить в Sileo</a>
+            <a id="debBtn" href="debs/com.cocxace.actionbutton12_1.0.0_iphoneos-arm.deb" class="btn btn-secondary">📦 Скачать .deb напрямую</a>
+        </div>
+
+        <div class="features">
+            <h3>Включено в ActionButton12:</h3>
+            <ul>
+                <li>Триггер: долгое нажатие Power (0.6s) / двойной Home</li>
+                <li>Кастомный HUD 2x2 с темной эстетикой Action Button</li>
+                <li>Фонарик, Камера, Диктофон, Скриншот, Wi-Fi, Bluetooth</li>
+                <li>Интерактивные плавные ползунки громкости и яркости</li>
+                <li>Настройки в Настройках iOS (PSListController)</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            Совместимость: iOS 12.0 – 12.5.8 • rootful • Sileo
+        </div>
+    </div>
+
+    <script>
+        // Dynamically compute the Sileo deep link based on host
+        const repoUrl = window.location.href.split('#')[0].split('?')[0];
+        document.getElementById('sileoBtn').href = 'sileo://source/' + repoUrl;
+    </script>
+</body>
+</html>

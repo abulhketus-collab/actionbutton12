@@ -1,0 +1,43 @@
+{
+  "minVersion": "0.1",
+  "headerImage": "https://raw.githubusercontent.com/cocxace/actionbutton12/main/CydiaIcon.png",
+  "tintColor": "#FF9500",
+  "tabs": [
+    {
+      "tabname": "Описание",
+      "views": [
+        {
+          "class": "DepictionHeaderView",
+          "title": "ActionButton12"
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "Имитация Action Button (iPhone 15 Pro) для iOS 12"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "**ActionButton12** переносит функционал Action Button с iPhone 15 Pro на классические девайсы iOS 12 (iPhone 5s, 6, 6 Plus).\n\n### ⚡ Возможности:\n- **Триггеры:** Долгое нажатие Power (0.6 сек) и/или двойной клик Home.\n- **Кастомный HUD:** Полупрозрачная панель 2x2 в темном стиле с закруглением 20pt.\n- **Быстрые действия:**\n  - 🔦 Фонарик (AVCaptureDevice)\n  - 📷 Камера (launchApplicationWithIdentifier)\n  - 🎙️ Диктофон (Voice Memos)\n  - 📸 Скриншот (SpringBoard takeScreenshot)\n  - 📶 Wi-Fi & 🔷 Bluetooth\n- **Плавные ползунки:** Интерактивное управление громкостью и яркостью прямо из HUD!\n- **Тактильный отклик:** Аудио-отклик (звук 1519) специально для iPhone 5s.\n- **Настройки:** PreferenceBundle в Настройках iOS с выбором действий и триггеров."
+        },
+        {
+          "class": "DepictionSpacerView",
+          "spacing": 16
+        },
+        {
+          "class": "DepictionTableButtonView",
+          "title": "Автор: @cocxace",
+          "action": "https://t.me/cocxace",
+          "openExternal": true
+        }
+      ]
+    },
+    {
+      "tabname": "История версий",
+      "views": [
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "### Версия 1.0.0\n- Первый релиз ActionButton12\n- 4 слота быстрых действий (фонарик, камера, диктофон, скриншот)\n- Плавные ползунки громкости и яркости\n- Выбор триггеров: Power / Home / Оба\n- Полная поддержка iOS 12.0 - 12.5.8 (rootful, Sileo, iPhone 5s A7)\n- Автор: @cocxace"
+        }
+      ]
+    }
+  ]
+}

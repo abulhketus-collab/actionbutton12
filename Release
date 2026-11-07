@@ -1,0 +1,23 @@
+Origin: ActionButton12 Repo
+Label: ActionButton12
+Suite: stable
+Version: 1.0
+Codename: ios
+Architectures: iphoneos-arm
+Components: main
+Description: Official APT repository for ActionButton12 by @cocxace
+MD5Sum:
+ 29d2b548a6f03a8e907a67261e6540b7 590 Packages
+ 29a2734bb50b7654bfdb6f8c3eb07dd8 377 Packages.gz
+ 3bc5b73fb125dcdaef77d62e6b6e7aac 426 Packages.bz2
+ 9124012f6222a5f85218c10883b29ea4 448 Packages.xz
+SHA1:
+ 2c270cc543b008ef6fd1b65507595b7a61deec71 590 Packages
+ 4720cf49ebd4969b54a90651b00cdfc88e41d35e 377 Packages.gz
+ 9db88ca6a0c96c59cb9cb7bffc38c7908edaad6a 426 Packages.bz2
+ 3acd5e49b5b8cec20030fde24106c23315d55bf9 448 Packages.xz
+SHA256:
+ 79ad90be4cd8851ba16057343054a856bfc52e0f7d28c6625acf599281311293 590 Packages
+ c0a92ffe5dd889e2282012a298830e69d708791b15c054e66c8266879b31c9e4 377 Packages.gz
+ c74d42c6923ec8b74fc781e27867041fe1b8d99e5d98610a043ab19c69af6a59 426 Packages.bz2
+ b3f8ac908ccf02eeeca4a31dd90ca2ee0e52102a46521bfc945e327ebd304f66 448 Packages.xz
