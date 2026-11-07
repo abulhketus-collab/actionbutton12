@@ -54,19 +54,28 @@ static void PreferencesChangedCallback(CFNotificationCenterRef center, void *obs
             NULL,
             CFNotificationSuspensionBehaviorDeliverImmediately
         );
-        
-        // Hook window delegate blocks
-        AB12HUDWindow *window = [AB12HUDWindow sharedWindow];
-        AB12ViewController *vc = (AB12ViewController *)window.rootViewController;
-        __weak typeof(self) weakSelf = self;
-        vc.actionBlock = ^(AB12Action action) {
-            [weakSelf handleActionSelection:action];
-        };
-        vc.dismissBlock = ^{
-            [weakSelf hideHUD];
-        };
+        // NOTE: DO NOT initialize UIWindow here! UIWindow must be 100% lazy to prevent boot crashes.
     }
     return self;
+}
+
+- (void)ensureWindowSetup {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        @try {
+            AB12HUDWindow *window = [AB12HUDWindow sharedWindow];
+            AB12ViewController *vc = (AB12ViewController *)window.rootViewController;
+            __weak typeof(self) weakSelf = self;
+            vc.actionBlock = ^(AB12Action action) {
+                [weakSelf handleActionSelection:action];
+            };
+            vc.dismissBlock = ^{
+                [weakSelf hideHUD];
+            };
+        } @catch (NSException *e) {
+            NSLog(@"[ActionButton12] Error setting up HUD window: %@", e);
+        }
+    });
 }
 
 - (void)loadPreferences {
@@ -101,23 +110,42 @@ static void PreferencesChangedCallback(CFNotificationCenterRef center, void *obs
 
 - (void)toggleHUD {
     if (!self.enabled) return;
-    
-    AB12HUDWindow *window = [AB12HUDWindow sharedWindow];
-    if (window.isShowing) {
-        [self hideHUD];
-    } else {
-        [self showHUD];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        @try {
+            [self ensureWindowSetup];
+            AB12HUDWindow *window = [AB12HUDWindow sharedWindow];
+            if (window.isShowing) {
+                [self hideHUD];
+            } else {
+                [self showHUD];
+            }
+        } @catch (NSException *e) {
+            NSLog(@"[ActionButton12] Error in toggleHUD: %@", e);
+        }
+    });
 }
 
 - (void)showHUD {
     if (!self.enabled) return;
-    AudioServicesPlaySystemSound(1519);
-    [[AB12HUDWindow sharedWindow] showWithActions:[self currentActions] showSliders:self.showSliders];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        @try {
+            [self ensureWindowSetup];
+            AudioServicesPlaySystemSound(1519);
+            [[AB12HUDWindow sharedWindow] showWithActions:[self currentActions] showSliders:self.showSliders];
+        } @catch (NSException *e) {
+            NSLog(@"[ActionButton12] Error in showHUD: %@", e);
+        }
+    });
 }
 
 - (void)hideHUD {
-    [[AB12HUDWindow sharedWindow] hideWithCompletion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        @try {
+            [[AB12HUDWindow sharedWindow] hideWithCompletion:nil];
+        } @catch (NSException *e) {
+            NSLog(@"[ActionButton12] Error in hideHUD: %@", e);
+        }
+    });
 }
 
 - (void)handleActionSelection:(AB12Action)action {
