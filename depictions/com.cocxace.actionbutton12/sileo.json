@@ -1,6 +1,6 @@
 {
   "minVersion": "0.1",
-  "headerImage": "https://raw.githubusercontent.com/cocxace/actionbutton12/main/CydiaIcon.png",
+  "headerImage": "https://raw.githubusercontent.com/abulhketus-collab/actionbutton12/main/CydiaIcon.png",
   "tintColor": "#FF9500",
   "tabs": [
     {
@@ -24,7 +24,7 @@
         },
         {
           "class": "DepictionTableButtonView",
-          "title": "Автор: @cocxace",
+          "title": "Создатель: @cocxace",
           "action": "https://t.me/cocxace",
           "openExternal": true
         }

@@ -90,10 +90,10 @@
         <img src="CydiaIcon.png" alt="ActionButton12" class="icon">
         <h1>ActionButton12</h1>
         <div class="author">by @cocxace</div>
-        <p class="desc">Официальный репозиторий твика ActionButton12 для iOS 12.0 – 12.5.8 (iPhone 5s / A7). Имитация кнопки Действия с iPhone 15 Pro.</p>
+        <p class="desc">Официальный репозиторий твика ActionButton12 для iOS 12.0 – 12.5.8 (iPhone 5s / A7). Имитация Action Button с iPhone 15 Pro.</p>
 
         <div class="btn-group">
-            <a id="sileoBtn" href="#" class="btn btn-sileo">⚡ Добавить в Sileo</a>
+            <a id="sileoBtn" href="sileo://source/https://abulhketus-collab.github.io/actionbutton12/" class="btn btn-sileo">⚡ Добавить в Sileo</a>
             <a id="debBtn" href="debs/com.cocxace.actionbutton12_1.0.0_iphoneos-arm.deb" class="btn btn-secondary">📦 Скачать .deb напрямую</a>
         </div>
 
@@ -114,9 +114,10 @@
     </div>
 
     <script>
-        // Dynamically compute the Sileo deep link based on host
-        const repoUrl = window.location.href.split('#')[0].split('?')[0];
-        document.getElementById('sileoBtn').href = 'sileo://source/' + repoUrl;
+        const currentUrl = window.location.href.split('#')[0].split('?')[0];
+        if (currentUrl.startsWith('http')) {
+            document.getElementById('sileoBtn').href = 'sileo://source/' + currentUrl;
+        }
     </script>
 </body>
 </html>
